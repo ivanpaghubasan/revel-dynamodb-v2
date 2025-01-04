@@ -11,7 +11,7 @@ type MovieController struct {
 }
 
 func (c MovieController) GetMovie(id string) revel.Result {
-	movie, err := app.Repository.GetMovie(id)
+	movie, err := app.Service.GetMovieByID(id)
 	if err != nil {
 		return c.RenderJSON(err)
 	}

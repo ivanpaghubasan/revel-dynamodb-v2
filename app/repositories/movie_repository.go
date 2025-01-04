@@ -27,7 +27,7 @@ func NewDynamoDBRepository(client *dynamodb.Client, tableName string) *DynamoDBR
 	}
 }
 
-func (a *DynamoDBRepository) GetMovie(id string) (*models.Movie, error) {
+func (a *DynamoDBRepository) GetMovieByID(id string) (*models.Movie, error) {
 	var movie models.Movie
 	result, err := a.Client.GetItem(context.TODO(), &dynamodb.GetItemInput{
 		TableName: aws.String(a.TableName),
